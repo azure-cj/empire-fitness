@@ -1,0 +1,360 @@
+/* Sales Report Styles */
+
+/* Filters Section */
+.filters-section {
+    background: white;
+    padding: 25px 35px;
+    margin: 0 35px 25px 35px;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.filters-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+    align-items: end;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-group label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 6px;
+}
+
+.filter-group input,
+.filter-group select {
+    padding: 10px 12px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.filter-group input:focus,
+.filter-group select:focus {
+    outline: none;
+    border-color: #d41c1c;
+    box-shadow: 0 0 0 3px rgba(212, 28, 28, 0.1);
+}
+
+.filter-actions {
+    grid-column: 1 / -1;
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.btn-export {
+    background: white;
+    color: #10b981;
+    border: 2px solid #10b981;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-export:hover {
+    background: #10b981;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Charts Section */
+.charts-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 25px;
+    padding: 0 35px 25px 35px;
+}
+
+.chart-container {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.chart-container h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.chart-container h3 i {
+    color: #d41c1c;
+}
+
+.chart-container canvas {
+    max-height: 300px;
+}
+
+/* Table Section */
+.table-section {
+    padding: 0 35px 35px 35px;
+}
+
+.table-section h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.table-section h3 i {
+    color: #d41c1c;
+}
+
+/* Client Info Cell */
+.client-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.client-info strong {
+    font-size: 14px;
+    color: #1a1a1a;
+}
+
+.client-info small {
+    font-size: 12px;
+    color: #718096;
+}
+
+/* Amount Cell */
+.amount-cell {
+    font-size: 16px;
+    font-weight: 700;
+    color: #10b981;
+}
+
+/* Payment Type Badges */
+.payment-type-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.type-membership {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.type-monthly {
+    background: #ddd6fe;
+    color: #5b21b6;
+}
+
+.type-daily {
+    background: #fed7aa;
+    color: #9a3412;
+}
+
+.type-service {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.type-class {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+/* Payment Method Badges */
+.payment-method-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.method-cash {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.method-credit-card,
+.method-debit-card {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.method-bank-transfer {
+    background: #ddd6fe;
+    color: #5b21b6;
+}
+
+.method-mobile-payment {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+/* Status Badges */
+.status-paid {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.status-pending {
+    background: #fed7aa;
+    color: #9a3412;
+}
+
+.status-refunded {
+    background: #e0e7ff;
+    color: #3730a3;
+}
+
+.status-cancelled {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+/* View Modal Specific Styles */
+#viewModalBody .payment-details {
+    padding: 20px 0;
+}
+
+#viewModalBody .detail-row {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 15px;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+#viewModalBody .detail-row:last-child {
+    border-bottom: none;
+}
+
+#viewModalBody .detail-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #718096;
+}
+
+#viewModalBody .detail-value {
+    font-size: 14px;
+    color: #1a1a1a;
+}
+
+#viewModalBody .amount-large {
+    font-size: 24px;
+    font-weight: 800;
+    color: #10b981;
+}
+
+#viewModalBody .remarks-box {
+    background: #f8fafc;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #d41c1c;
+    margin-top: 10px;
+}
+
+/* Summary Cards in Modal */
+.payment-summary {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.summary-card {
+    background: #f8fafc;
+    padding: 15px;
+    border-radius: 10px;
+    border-left: 4px solid #d41c1c;
+}
+
+.summary-card .label {
+    font-size: 12px;
+    color: #718096;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.summary-card .value {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .charts-section {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .filters-section {
+        margin: 0 20px 20px 20px;
+        padding: 20px;
+    }
+    
+    .filters-form {
+        grid-template-columns: 1fr;
+    }
+    
+    .filter-actions {
+        flex-direction: column;
+    }
+    
+    .filter-actions button {
+        width: 100%;
+    }
+    
+    .charts-section {
+        grid-template-columns: 1fr;
+        padding: 0 20px 20px 20px;
+    }
+    
+    .table-section {
+        padding: 0 20px 20px 20px;
+    }
+    
+    .table-container {
+        overflow-x: auto;
+    }
+    
+    .employees-table {
+        min-width: 1000px;
+    }
+    
+    #viewModalBody .detail-row {
+        grid-template-columns: 1fr;
+        gap: 5px;
+    }
+    
+    .payment-summary {
+        grid-template-columns: 1fr;
+    }
+}

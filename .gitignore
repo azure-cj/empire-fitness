@@ -1,0 +1,43 @@
+# Dependencies
+node_modules/
+vendor/
+
+# IDE and Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment & Config
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+logs/
+
+# Temp files
+*.tmp
+*.temp
+
+# Uploads (keep directory structure but ignore uploaded files)
+uploads/*
+!uploads/.gitkeep
+
+# Local development
+.htaccess.local
+config/database.local.php
+
+# Build/Dist
+dist/
+build/
+
+# Cache
+.cache/
+cache/

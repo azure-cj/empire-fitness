@@ -1,0 +1,290 @@
+/* ===== REAL-TIME NOTIFICATION STYLES ===== */
+
+#notifications {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    z-index: 10000;
+    width: 380px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+/* Notification Container */
+.notification {
+    background: white;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    animation: slideIn 0.3s ease-out;
+    overflow: hidden;
+    border-left: 4px solid #d41c1c;
+}
+
+.notification.fade-out {
+    animation: slideOut 0.3s ease-out forwards;
+}
+
+/* Animation */
+@keyframes slideIn {
+    from {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    to {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+}
+
+/* Notification Content */
+.notification-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 16px;
+}
+
+.notification-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+}
+
+.notification-body {
+    flex: 1;
+    min-width: 0;
+}
+
+.notification-title {
+    font-weight: 600;
+    color: #1e293b;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.notification-message {
+    color: #64748b;
+    font-size: 13px;
+    line-height: 1.4;
+    word-break: break-word;
+}
+
+.notification-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #94a3b8;
+    font-size: 24px;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: color 0.2s ease;
+}
+
+.notification-close:hover {
+    color: #d41c1c;
+}
+
+/* Notification Types */
+
+/* Assignment Created */
+.notification-assignment_created {
+    border-left-color: #10b981;
+}
+
+.notification-assignment_created .notification-icon {
+    color: #10b981;
+}
+
+/* Assignment Updated */
+.notification-assignment_updated {
+    border-left-color: #3b82f6;
+}
+
+.notification-assignment_updated .notification-icon {
+    color: #3b82f6;
+}
+
+/* Assignment Removed */
+.notification-assignment_removed {
+    border-left-color: #ef4444;
+}
+
+.notification-assignment_removed .notification-icon {
+    color: #ef4444;
+}
+
+/* Schedule Created */
+.notification-schedule_created {
+    border-left-color: #8b5cf6;
+}
+
+.notification-schedule_created .notification-icon {
+    color: #8b5cf6;
+}
+
+/* Schedule Updated */
+.notification-schedule_updated {
+    border-left-color: #f59e0b;
+}
+
+.notification-schedule_updated .notification-icon {
+    color: #f59e0b;
+}
+
+/* Schedule Cancelled */
+.notification-schedule_cancelled {
+    border-left-color: #dc2626;
+}
+
+.notification-schedule_cancelled .notification-icon {
+    color: #dc2626;
+}
+
+/* Manager Alert */
+.notification-manager_alert {
+    border-left-color: #d41c1c;
+}
+
+.notification-manager_alert .notification-icon {
+    color: #d41c1c;
+}
+
+/* Member Check-in */
+.notification-member_checkin {
+    border-left-color: #06b6d4;
+}
+
+.notification-member_checkin .notification-icon {
+    color: #06b6d4;
+}
+
+/* Coach Status Changed */
+.notification-coach_status_changed {
+    border-left-color: #6366f1;
+}
+
+.notification-coach_status_changed .notification-icon {
+    color: #6366f1;
+}
+
+/* Assessment Created */
+.notification-assessment_created {
+    border-left-color: #14b8a6;
+}
+
+.notification-assessment_created .notification-icon {
+    color: #14b8a6;
+}
+
+/* Assessment Completed */
+.notification-assessment_completed {
+    border-left-color: #10b981;
+}
+
+.notification-assessment_completed .notification-icon {
+    color: #10b981;
+}
+
+/* User Online/Offline */
+.notification-user_online {
+    border-left-color: #22c55e;
+}
+
+.notification-user_online .notification-icon {
+    color: #22c55e;
+}
+
+.notification-user_offline {
+    border-left-color: #6b7280;
+}
+
+.notification-user_offline .notification-icon {
+    color: #6b7280;
+}
+
+/* Custom Notification */
+.notification-custom {
+    border-left-color: #d41c1c;
+}
+
+.notification-custom .notification-icon {
+    color: #d41c1c;
+}
+
+/* Broadcast Notification */
+.notification-broadcast {
+    border-left-color: #d41c1c;
+    background: linear-gradient(135deg, #fff5f5 0%, #ffffff 100%);
+}
+
+.notification-broadcast .notification-icon {
+    color: #d41c1c;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    #notifications {
+        width: 320px;
+        right: 10px;
+        top: 70px;
+    }
+
+    .notification-content {
+        padding: 12px 14px;
+    }
+
+    .notification-title {
+        font-size: 13px;
+    }
+
+    .notification-message {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    #notifications {
+        width: calc(100vw - 20px);
+        right: 10px;
+        left: 10px;
+        max-height: 60vh;
+    }
+
+    .notification {
+        margin-bottom: 8px;
+    }
+
+    .notification-content {
+        gap: 10px;
+        padding: 12px;
+    }
+
+    .notification-icon {
+        font-size: 18px;
+        width: 28px;
+        height: 28px;
+    }
+}

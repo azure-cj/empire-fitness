@@ -1,0 +1,83 @@
+<?php
+/**
+ * Payment Reminder Email Template
+ * Sent as a reminder to pay an outstanding invoice
+ */
+
+$coach_name = $coach_name ?? 'Coach';
+$invoice_number = $invoice_number ?? 'INV-000000';
+$amount_due = $amount_due ?? 0;
+$due_date = $due_date ?? date('M d, Y');
+$days_until_due = $days_until_due ?? 0;
+$invoice_url = $invoice_url ?? '#';
+
+ob_start();
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body { font-family: Arial, sans-serif; color: #333; }
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+        .header { background: #fd7e14; color: white; padding: 20px; text-align: center; border-radius: 5px 5px 0 0; }
+        .content { background: #f9f9f9; padding: 20px; border: 1px solid #ddd; }
+        .footer { background: #f0f0f0; padding: 15px; text-align: center; font-size: 12px; color: #666; }
+        .amount { font-size: 24px; font-weight: bold; color: #fd7e14; }
+        .alert { background: #fff3cd; border: 1px solid #ffeeba; padding: 15px; border-radius: 5px; margin: 20px 0; }
+        .button { display: inline-block; background: #fd7e14; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin: 20px 0; }
+        table { width: 100%; margin: 20px 0; }
+        th, td { padding: 10px; text-align: left; border-bottom: 1px solid #ddd; }
+        th { background: #f0f0f0; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Payment Reminder</h1>
+        </div>
+        <div class="content">
+            <p>Hello <?php echo htmlspecialchars($coach_name); ?>,</p>
+            
+            <div class="alert">
+                <strong>⚠️ Payment Due Reminder</strong><br>
+                Your invoice payment is due in <?php echo htmlspecialchars($days_until_due); ?> days.
+            </div>
+            
+            <table>
+                <tr>
+                    <th>Invoice Details</th>
+                </tr>
+                <tr>
+                    <td><strong>Invoice Number:</strong> <?php echo htmlspecialchars($invoice_number); ?></td>
+                </tr>
+                <tr>
+                    <td><strong>Amount Due:</strong> <span class="amount">₱<?php echo number_format($amount_due, 2); ?></span></td>
+                </tr>
+                <tr>
+                    <td><strong>Due Date:</strong> <?php echo htmlspecialchars($due_date); ?></td>
+                </tr>
+            </table>
+            
+            <p>Please arrange payment at your earliest convenience. Payment methods and details have been shared with you separately.</p>
+            
+            <center>
+                <a href="<?php echo htmlspecialchars($invoice_url); ?>" class="button">View Invoice & Pay</a>
+            </center>
+            
+            <p>If you have already made this payment, please disregard this notice.</p>
+            
+            <p>Thank you for your cooperation.<br>Empire Fitness Management</p>
+        </div>
+        <div class="footer">
+            <p>&copy; 2026 Empire Fitness. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>
+
+<?php
+$html = ob_get_clean();
+return $html;
+?>

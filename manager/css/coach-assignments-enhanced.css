@@ -1,0 +1,612 @@
+
+/* Coach Assignments - Enhanced UI with Card & Table Views */
+
+:root {
+    --primary-red: #dc2626;
+    --primary-red-dark: #b91c1c;
+    --primary-red-light: #ef4444;
+    --secondary-red: #f87171;
+    --accent-red: #fca5a5;
+    --background-white: #ffffff;
+    --background-gray: #f8fafc;
+    --background-light: #fafafa;
+    --text-dark: #1e293b;
+    --text-medium: #475569;
+    --text-light: #94a3b8;
+    --border-light: #e2e8f0;
+    --border-lighter: #f1f5f9;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --danger: #dc2626;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --spacing-xs: 8px;
+    --spacing-sm: 12px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+}
+
+/* ===== VIEW TOGGLE ===== */
+.view-toggle {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+    padding: 0 var(--spacing-md);
+}
+.btn-icon {
+    padding: 8px 12px;
+    background: #f8f9fa;
+    border: 1px solid var(--light-gray);
+    border-radius: 6px;
+    color: var(--medium-gray);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-icon:hover {
+    background: #667eea;
+    color: white;
+    border-color: #667eea;
+    transform: translateY(-2px);
+}
+
+.btn-icon.btn-danger:hover {
+    background: var(--danger);
+    border-color: var(--danger);
+}
+
+/* Buttons */
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(212, 28, 28, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(212, 28, 28, 0.4);
+}
+
+.btn-secondary {
+    background: white;
+    color: var(--dark-gray);
+    border: 2px solid var(--light-gray);
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background: var(--bg-gray);
+    border-color: var(--primary-red);
+    color: var(--primary-red);
+}
+
+.btn-success {
+    background: var(--success);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-success:hover {
+    background: #218838;
+    transform: translateY(-2px);
+}
+
+.btn-danger {
+    background: var(--danger);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-danger:hover {
+    background: #c82333;
+    transform: translateY(-2px);
+}
+
+/* Action Buttons */
+.action-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+}
+
+.btn-view {
+    color: var(--info);
+}
+
+.btn-view:hover {
+    background: rgba(23, 162, 184, 0.1);
+}
+
+.btn-edit {
+    color: var(--warning);
+}
+
+.btn-edit:hover {
+    background: rgba(255, 193, 7, 0.1);
+}
+
+.btn-delete {
+    color: var(--danger);
+}
+
+.btn-delete:hover {
+    background: rgba(220, 53, 69, 0.1);
+}
+.toggle-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 2px solid var(--border-light);
+    background: var(--background-white);
+    color: var(--text-medium);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.toggle-btn:hover {
+    border-color: var(--primary-red);
+    color: var(--primary-red);
+    background: var(--background-light);
+}
+
+.toggle-btn.active {
+    background: var(--primary-red);
+    color: white;
+    border-color: var(--primary-red);
+}
+
+/* ===== COACHES CARDS CONTAINER ===== */
+.coaches-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: var(--spacing-lg);
+    padding: var(--spacing-md);
+}
+
+/* ===== COACH CARD - IMPROVED ===== */
+.coach-card {
+    background: var(--background-white);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid var(--border-lighter);
+    display: flex;
+    flex-direction: column;
+}
+
+.coach-card:hover {
+    box-shadow: 0 8px 24px rgba(220, 38, 38, 0.12);
+    transform: translateY(-2px);
+}
+
+.coach-card-header {
+    background: linear-gradient(135deg, var(--primary-red) 0%, var(--primary-red-dark) 100%);
+    padding: var(--spacing-lg);
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.coach-avatar {
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.coach-header-info {
+    flex: 1;
+}
+
+.coach-header-info h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.coach-header-info p {
+    margin: 4px 0 0 0;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.coach-card-body {
+    padding: var(--spacing-lg);
+    flex: 1;
+}
+
+.coach-info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-sm) 0;
+    border-bottom: 1px solid var(--border-lighter);
+}
+
+.coach-info-row:last-of-type {
+    border-bottom: none;
+}
+
+.coach-info-label {
+    color: var(--text-light);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.coach-info-value {
+    color: var(--text-dark);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.coach-info-value.highlight {
+    color: var(--primary-red);
+    font-weight: 600;
+}
+
+/* ===== CLIENTS LIST IN CARD ===== */
+.clients-list {
+    margin-top: var(--spacing-md);
+    padding-top: var(--spacing-md);
+    border-top: 2px solid var(--border-lighter);
+}
+
+.clients-list h4 {
+    margin: 0 0 var(--spacing-sm) 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-dark);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.clients-list-items {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.client-item {
+    background: var(--background-light);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius-sm);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    transition: all 0.2s ease;
+}
+
+.client-item:hover {
+    background: var(--background-gray);
+}
+
+.client-item-name {
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.client-item-remove {
+    color: var(--danger);
+    cursor: pointer;
+    font-size: 12px;
+    opacity: 0.7;
+    transition: all 0.2s ease;
+}
+
+.client-item-remove:hover {
+    opacity: 1;
+}
+
+.no-clients {
+    text-align: center;
+    color: var(--text-light);
+    padding: var(--spacing-lg) var(--spacing-sm);
+    font-size: 13px;
+}
+
+/* ===== COACH CARD FOOTER ===== */
+.coach-card-footer {
+    padding: var(--spacing-lg);
+    background: var(--background-light);
+    border-top: 1px solid var(--border-lighter);
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.coach-card-footer button {
+    flex: 1;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.coach-card-footer .btn-add-client {
+    background: var(--primary-red);
+    color: white;
+}
+
+.coach-card-footer .btn-add-client:hover {
+    background: var(--primary-red-dark);
+}
+
+.coach-card-footer .btn-view-clients {
+    background: var(--background-white);
+    border: 1px solid var(--border-light);
+    color: var(--primary-red);
+}
+
+.coach-card-footer .btn-view-clients:hover {
+    background: var(--background-light);
+}
+
+/* ===== REMOVAL MODAL STYLES ===== */
+#removeAssignmentModal .warning-box {
+    background: #fef3c7;
+    border-left: 4px solid var(--warning);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--spacing-lg);
+    display: flex;
+    gap: var(--spacing-md);
+    color: #92400e;
+    font-size: 14px;
+}
+
+#removeAssignmentModal .warning-box i {
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.assignment-details {
+    background: var(--background-light);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--spacing-lg);
+}
+
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-sm) 0;
+    font-size: 14px;
+}
+
+.detail-item:not(:last-child) {
+    border-bottom: 1px solid var(--border-lighter);
+}
+
+.detail-label {
+    color: var(--text-light);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.detail-value {
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.notification-options {
+    background: #ecfdf5;
+    border: 1px solid #d1fae5;
+    border-radius: var(--radius-sm);
+    padding: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.notification-options h4 {
+    margin: 0 0 var(--spacing-sm) 0;
+    font-size: 13px;
+    color: var(--text-dark);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) 0;
+    cursor: pointer;
+    font-size: 13px;
+    color: var(--text-medium);
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+/* ===== ACTION BUTTONS ===== */
+.btn-danger {
+    background: var(--danger);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-danger:hover {
+    background: #b91c1c;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.2);
+}
+
+.btn-danger:active {
+    transform: translateY(0);
+}
+
+/* ===== TABLE ACTIONS ===== */
+.action-buttons {
+    display: flex;
+    gap: var(--spacing-xs);
+    flex-wrap: wrap;
+}
+
+.action-btn {
+    padding: 6px 12px;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.action-btn-edit {
+    background: #e0f2fe;
+    color: #0369a1;
+}
+
+.action-btn-edit:hover {
+    background: #bae6fd;
+}
+
+.action-btn-view {
+    background: #f0fdf4;
+    color: #15803d;
+}
+
+.action-btn-view:hover {
+    background: #dcfce7;
+}
+
+.action-btn-remove {
+    background: #fee2e2;
+    color: var(--danger);
+}
+
+.action-btn-remove:hover {
+    background: #fecaca;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+    .coaches-cards-container {
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .coaches-cards-container {
+        grid-template-columns: 1fr;
+    }
+
+    .coach-card-header {
+        padding: var(--spacing-md);
+    }
+
+    .coach-card-body,
+    .coach-card-footer {
+        padding: var(--spacing-md);
+    }
+
+    .view-toggle {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 480px) {
+    .coach-header-info h3 {
+        font-size: 16px;
+    }
+
+    .clients-list-items {
+        max-height: 200px;
+    }
+
+    .coach-card-footer {
+        flex-direction: column;
+    }
+
+    .coach-card-footer button {
+        width: 100%;
+    }
+}

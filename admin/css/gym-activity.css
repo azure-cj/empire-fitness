@@ -1,0 +1,358 @@
+/* Activity Stats Section */
+.activity-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 35px;
+    background: none;
+}
+
+.activity-stats .stat-card {
+    background: white;
+    padding: 20px;
+    border-radius: 14px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    transition: all 0.3s ease;
+    border: 1px solid #e2e8f0;
+}
+
+.activity-stats .stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(212, 28, 28, 0.1);
+}
+
+.activity-stats .stat-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    color: white;
+    background: linear-gradient(135deg, #d41c1c, #b91a1a);
+    flex-shrink: 0;
+}
+
+.activity-stats .stat-content h3 {
+    font-size: 13px;
+    font-weight: 600;
+    color: #718096;
+    margin-bottom: 5px;
+}
+
+.activity-stats .stat-number {
+    font-size: 28px;
+    font-weight: 800;
+    color: #1a1a1a;
+}
+
+/* Activity Container */
+.activity-container {
+    padding: 35px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 35px;
+}
+
+.activity-section {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    padding: 30px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #f0f4f8;
+    padding-bottom: 15px;
+}
+
+.section-header h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a1a1a;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.section-header h2 i {
+    color: #d41c1c;
+}
+
+.activity-count {
+    font-size: 12px;
+    color: #718096;
+    background: #f7fafc;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+/* Activity List */
+.activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-height: 700px;
+    overflow-y: auto;
+}
+
+.activity-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.activity-list::-webkit-scrollbar-track {
+    background: #f7fafc;
+    border-radius: 10px;
+}
+
+.activity-list::-webkit-scrollbar-thumb {
+    background: #cbd5e0;
+    border-radius: 10px;
+}
+
+.activity-list::-webkit-scrollbar-thumb:hover {
+    background: #a0aec0;
+}
+
+/* Activity Item */
+.activity-item {
+    display: flex;
+    gap: 16px;
+    padding: 16px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.activity-item:hover {
+    background: #f8fafc;
+    border-color: #d41c1c;
+    transform: translateX(5px);
+}
+
+.activity-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: white;
+    flex-shrink: 0;
+}
+
+.activity-icon.member {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+}
+
+.activity-icon.coach {
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+}
+
+/* Activity Body */
+.activity-body {
+    flex: 1;
+    min-width: 0;
+}
+
+.activity-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.activity-user {
+    font-size: 14px;
+    color: #1a1a1a;
+    font-weight: 600;
+    word-break: break-word;
+}
+
+.activity-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    color: #d41c1c;
+    background: rgba(212, 28, 28, 0.1);
+    padding: 4px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+    text-transform: uppercase;
+}
+
+.activity-description {
+    font-size: 13px;
+    color: #718096;
+    margin-bottom: 8px;
+    line-height: 1.4;
+    font-style: italic;
+    word-break: break-word;
+}
+
+.activity-meta {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.meta-item {
+    font-size: 12px;
+    color: #a0aec0;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.meta-item i {
+    color: #d41c1c;
+    font-size: 11px;
+}
+
+/* Empty State */
+.activity-empty {
+    text-align: center;
+    padding: 50px 20px;
+    color: #cbd5e0;
+}
+
+.activity-empty i {
+    font-size: 48px;
+    color: #e2e8f0;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.activity-empty p {
+    font-size: 14px;
+    color: #a0aec0;
+}
+
+/* Filter bar styles */
+.filter-form {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+}
+
+.filter-row {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.filter-input {
+    padding: 8px 10px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    background: #fff;
+    font-size: 14px;
+}
+
+.search-field {
+    min-width: 220px;
+}
+
+.btn {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #d41c1c, #b91a1a);
+    color: #fff;
+}
+
+.btn-secondary {
+    background: #f3f4f6;
+    color: #1f2937;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .activity-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .activity-stats {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 20px;
+        gap: 15px;
+    }
+
+    .activity-container {
+        grid-template-columns: 1fr;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .activity-section {
+        padding: 20px;
+    }
+
+    .section-header h2 {
+        font-size: 18px;
+    }
+
+    .activity-list {
+        max-height: 500px;
+    }
+
+    .activity-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 480px) {
+    .activity-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .activity-stats .stat-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .activity-item {
+        gap: 12px;
+        padding: 12px;
+    }
+
+    .activity-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+
+    .activity-user {
+        font-size: 13px;
+    }
+
+    .activity-badge {
+        font-size: 10px;
+        padding: 3px 8px;
+    }
+}
